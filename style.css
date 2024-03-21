@@ -3,11 +3,12 @@
 }
 
 body {
-  background: white;
-  background-size: cover;
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  min-height: 100vh;
 }
 
 #wrapper {
+  margin-top: 100px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -139,28 +140,24 @@ body {
   background: yellow;
   border: none;
   border-radius: 50%;
-  clip-path: polygon(
-    0 0,
-    20px 0,
-    20px -5px,
-    8px 10px,
-    20px 25px,
-    20px 20px,
-    0 20px
-  );
+  clip-path: polygon(0 0,
+      20px 0,
+      20px -5px,
+      8px 10px,
+      20px 25px,
+      20px 20px,
+      0 20px);
   animation: chew 0.2s linear forwards infinite;
 }
 
 @keyframes chew {
   50% {
-    clip-path: polygon(
-      0 0,
-      20px 0,
-      20px 10px,
-      8px 10px,
-      20px 10px,
-      20px 20px,
-      0 20px
-    );
+    clip-path: polygon(0 0,
+        20px 0,
+        20px 10px,
+        8px 10px,
+        20px 10px,
+        20px 20px,
+        0 20px);
   }
 }
