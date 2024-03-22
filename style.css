@@ -1,15 +1,249 @@
+:root {
+  --d-pad: #1d2323;
+  --label: #474881;
+  --system: #bcbdc2;
+  --screen-border: #636c7b;
+  --screen: #eee;
+  --label: #474881;
+  --d-pad: #1d2323;
+  --button-group: #afb2b6;
+  --control-buttons: #79215b;
+  --meta-buttons: #717b85;
+}
+
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+	background: var(--system);
+	font-family: 'Source Sans Pro', Verdana, Arial, sans-serif;
+	font-size: 16px;
   overflow: hidden;
+
+
+	@media screen and ( min-width: 220px ) {
+		font-size: 18px
+	}
+	@media screen and ( min-width: 240px ) {
+		font-size: 20px
+	}
+	@media screen and ( min-width: 260px ) {
+		font-size: 22px
+	}
+	@media screen and ( min-width: 280px ) {
+		font-size: 24px
+	}
+	@media screen and ( min-width: 300px ) {
+		font-size: 26px
+	}
+	@media screen and ( min-width: 320px ) {
+		font-size: 28px
+	}
+	@media screen and ( min-width: 340px ) {
+		font-size: 30px
+	}
+	@media screen and ( min-width: 360px ) {
+		font-size: 32px
+	}
+	@media screen and ( min-width: 380px ) {
+		font-size: 34px
+	}
+	@media screen and ( min-width: 400px ) {
+		font-size: 36px
+	}
+	@media screen and ( min-width: 420px ) {
+		font-size: 38px
+	}
+	@media screen and ( min-width: 440px ) {
+		font-size: 40px
+	}
+	@media screen and ( min-width: 460px ) {
+		font-size: 42px
+	}
+	@media screen and ( min-width: 480px ) {
+		font-size: 44px
+	}
+	@media screen and ( min-width: 500px ) {
+		font-size: 46px
+	}
+}
+
+.system {
+	float: left;
+	padding-top: 1em;
+	padding-bottom: 2em;
+}
+
+.screen-border {
+	background: var(--screen-border);
+  border-radius: .25em .25em 1em .25em;
+
+  @media screen and ( min-width: 500px ) {
+    padding: .5em 1em;
+	}
+}
+
+.screen {
+	background: var(--screen);
+	width: 320px;
+	max-width: 100%;
+}
+
+.controls {
+	position: relative;
+	padding-bottom: 3em;
+}
+
+.button {
+	cursor: pointer;
+	box-shadow: 0 0 3px 1px #555;
+	color: var(--label);
+	text-align: center;
+	&:hover {
+		box-shadow: 0 0 5px 1px #333;
+	}
+	&:active {
+		box-shadow: 0 0 5px 1px #333 inset;
+	}
+	.label {
+		font-size: .4em;
+		position: relative;
+		text-transform: uppercase;
+	}
+}
+
+.system-name {
+	color: var(--label);
+	font-style: italic;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+	font-size: .4em;
+	padding-top: .5em;
+	padding-bottom: 2em;
+}
+.d-pad {
+  left: 20px;
+	width: 3em;
+	height: 3em;
+	position: relative;
+}
+
+.d {
+	width: 1em;
+	height: 1em;
+	background: var(--d-pad);
+	position: absolute;
+	border-top: .05em solid lighten(var(--d-pad), 40%);
+	border-bottom: .05em solid darken(var(--d-pad), 20%);
+	&:hover, &:active {
+		background: lighten(var(--d-pad), 15%);
+	}
+}
+
+.up {
+	left: 1em;
+	top: 0;
+	border-radius: .25em .25em 0 0;
+	.label {
+		top: -3em;
+	}
+}
+.right {
+	top: 1em;
+	right: 0;
+	border-radius: 0 .25em .25em 0;
+	.label {
+		top: -1em;
+		right: -2em;
+	}
+}
+.down {
+	left: 1em;
+	bottom: 0;
+	border-radius: 0 0 .25em .25em;
+	.label {
+		bottom: -1em;
+	}
+}
+.left {
+	top: 1em;
+	left: 0;
+	border-radius: .25em 0 0 .25em;
+	.label {
+		top: -1em;
+		left: -2em;
+	}
+}
+
+.control-buttons {
+	position: absolute;
+	right: 0;
+	top: 2em;
+	background: var(--button-group);
+	border-radius: 2em;
+}
+.control {
+	background: var(--control-buttons);
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 1.5em;
+	float: right;
+	margin: .25em;
+	border-top: .05em solid lighten(var(--control-buttons), 40%);
+	border-bottom: .05em solid darken(var(--control-buttons), 20%);
+	&:hover, &:active {
+		background: lighten(var(--control-buttons), 5%);
+	}
+	.label {
+		bottom: -3em;
+	}
+}
+
+.meta-buttons {
+	position: absolute;
+	background: var(--button-group);
+	top: 6em;
+	left: 2.5em;
+	border-radius: 2em;
+}
+
+.meta {
+	background: var(--meta-buttons);
+	width: 1.8em;
+	height: .5em;
+	border-radius: .4em;
+	float: right;
+	margin: .25em;
+	border-top: .05em solid lighten(var(--meta-buttons), 10%);
+	border-bottom: .05em solid darken(var(--meta-buttons), 10%);
+	&:hover, &:active {
+		background: lighten(var(--meta-buttons), 5%);
+	}
+	.label {
+		bottom: -.6em;
+	}
+}
+.message {
+	font-size: .5em;
+	color: var(--label);
+	font-style: italic;
+}
+.control-key {
+	padding: 1.6em;
+	font-size: .4em;
+	float: left;
+	border: 1px solid var(--label);
+	color: var(--label);
+	ul {
+		padding-left: 2em;
+	}
 }
 
 #wrapper {
-  margin-top: 100px;
   position: relative;
   display: flex;
   flex-direction: column;

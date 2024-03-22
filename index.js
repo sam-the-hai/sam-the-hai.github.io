@@ -13,7 +13,11 @@ import soundGhost from './sounds/eat_ghost.wav';
 // Dom Elements
 const gameGrid = document.querySelector('#game');
 const scoreTable = document.querySelector('#score');
-const startButton = document.querySelector('#start-button');
+const startButton = document.querySelector('#meta-start');
+const upButton = document.querySelector('#d-up');
+const downButton = document.querySelector('#d-down');
+const rightButton = document.querySelector('#d-right');
+const leftButton = document.querySelector('#d-left');
 // Game constants
 const POWER_PILL_TIME = 10000; // ms
 const GLOBAL_SPEED = 80; // ms
@@ -129,8 +133,21 @@ function startGame() {
   const pacman = new Pacman(2, 287);
   gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
   document.addEventListener('keydown', (e) =>
-    pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard))
+    pacman.handleKeyInput(e.key, gameBoard.objectExist.bind(gameBoard))
   );
+
+  upButton.addEventListener('click', () => {
+    pacman.handleKeyInput('ArrowUp', gameBoard.objectExist.bind(gameBoard))
+  });
+  downButton.addEventListener('click', () => {
+    pacman.handleKeyInput('ArrowDown', gameBoard.objectExist.bind(gameBoard))
+  });
+  rightButton.addEventListener('click', () => {
+    pacman.handleKeyInput('ArrowRight', gameBoard.objectExist.bind(gameBoard))
+  });
+  leftButton.addEventListener('click', () => {
+    pacman.handleKeyInput('ArrowLeft', gameBoard.objectExist.bind(gameBoard))
+  });
 
   const ghosts = [
     new Ghost(5, 188, randomMovement, OBJECT_TYPE.BLINKY),
