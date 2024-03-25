@@ -13,11 +13,11 @@ import soundGhost from './sounds/eat_ghost.wav';
 // Dom Elements
 const gameGrid = document.querySelector('#game');
 const scoreTable = document.querySelector('#score');
-const startButton = document.querySelector('#meta-start');
-const upButton = document.querySelector('#d-up');
-const downButton = document.querySelector('#d-down');
-const rightButton = document.querySelector('#d-right');
-const leftButton = document.querySelector('#d-left');
+const startButton = document.querySelector('#btn-center');
+const upButton = document.querySelector('#btn-up');
+const downButton = document.querySelector('#btn-down');
+const rightButton = document.querySelector('#btn-right');
+const leftButton = document.querySelector('#btn-left');
 // Game constants
 const POWER_PILL_TIME = 10000; // ms
 const GLOBAL_SPEED = 80; // ms
